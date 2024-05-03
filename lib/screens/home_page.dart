@@ -1,3 +1,4 @@
+import 'package:afs_gpt/components/custom_drawer.dart';
 import 'package:afs_gpt/repository/prompt_repository.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(),
       backgroundColor: const Color.fromARGB(255, 205, 202, 202),
       appBar: AppBar(
         title: const Text("AFS GPT"),
