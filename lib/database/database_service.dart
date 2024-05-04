@@ -18,7 +18,7 @@ class DatabaseService {
     return database;
   }
 
-  create(Database database, int version)async{
+  Future<void> create(Database database, int version)async{
     await PromptDb().createTable(database);
   }
 }

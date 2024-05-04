@@ -9,50 +9,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const CustomDrawer(),
-      backgroundColor: const Color.fromARGB(255, 205, 202, 202),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("AFS GPT"),
       ),
-      body: Stack(
-        alignment: Alignment.bottomCenter,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SingleChildScrollView(
-            child: Column(
+          Expanded(
+            child: Stack(
+              alignment: Alignment.bottomCenter,
               children: [
-                Container(
-                  width: 100,
-                  height: 200,
-                  color: Colors.green,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Image.asset("assets/images/logo.png")],
                 ),
-                Container(
-                  width: 100,
-                  height: 200,
-                  color: Colors.white,
-                ),
-                Container(
-                  width: 100,
-                  height: 200,
-                  color: Colors.red,
-                ),
-                Container(
-                  width: 100,
-                  height: 200,
-                  color: Colors.green,
-                ),
-                Container(
-                  width: 100,
-                  height: 200,
-                  color: Colors.white,
-                ),
-                Container(
-                  width: 100,
-                  height: 200,
-                  color: Colors.red,
-                ),
+                _builTextField(),
               ],
             ),
           ),
-          _builTextField()
         ],
       ),
     );
@@ -61,7 +36,7 @@ class HomePage extends StatelessWidget {
   Widget _builTextField() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-      child: TextField(
+      child: TextFormField(
         decoration: _buildTextFieldDecoraion(),
       ),
     );
@@ -69,10 +44,11 @@ class HomePage extends StatelessWidget {
 
   InputDecoration _buildTextFieldDecoraion() {
     return InputDecoration(
+      contentPadding: const EdgeInsets.all(8),
       filled: true,
-      fillColor: Colors.white,
+      fillColor: const Color.fromARGB(255, 228, 226, 226),
       hintText: 'Message',
-      hintStyle: TextStyle(color: Colors.grey[400]),
+      hintStyle: const TextStyle(color: Color.fromARGB(255, 101, 97, 97)),
       suffix: IconButton(
         icon: const Icon(Icons.arrow_upward),
         onPressed: () => PromptRepository().fetchChatGPTResponse("say yes"),
