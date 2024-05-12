@@ -19,7 +19,7 @@ class AuthWrapper extends StatelessWidget {
           );
         } else {
           if (snapshot.hasData && snapshot.data != null) {
-            return const HomePage();
+            return HomePage();
           } else {
             return LoginPage();
           }

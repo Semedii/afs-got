@@ -13,13 +13,14 @@ class Prompt {
     required this.createdDate,
   });
 
-  factory Prompt.fromFirestore(DocumentSnapshot doc) {
-    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+  factory Prompt.fromFirestore( DocumentSnapshot<Map<String, dynamic>> snapshot,
+    SnapshotOptions? options) {
+     final data = snapshot.data();
     return Prompt(
-      question: data['question'] ?? '',
-      response: data['response'] ?? '',
-      userEmail: data['userEmail'] ?? '',
-      createdDate: (data['createdDate'] as Timestamp).toDate(),
+      question: data?['question'] ?? '',
+      response: data?['response'] ?? '',
+      userEmail: data?['userEmail'] ?? '',
+      createdDate: (data?['createdDate'] as Timestamp).toDate(),
     );
   }
 
