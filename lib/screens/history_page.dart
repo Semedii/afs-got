@@ -11,7 +11,7 @@ class HistoryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Conversation History'),
+        title: const Text('History'),
       ),
       body: BlocProvider(
         create: (context) => HistoryCubit(_promptDataService),

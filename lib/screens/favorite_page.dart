@@ -11,7 +11,7 @@ class FavoritePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Conversation Favorite'),
+        title: const Text('Favorites'),
       ),
       body: BlocProvider(
         create: (context) => FavoriteCubit(_promptDataService),
