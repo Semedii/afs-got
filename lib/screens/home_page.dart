@@ -62,14 +62,17 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _builTextField(HomeCubit cubit, HomeInitialState state) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-      child: TextFormField(
-        initialValue: state.question,
-        decoration: _buildTextFieldDecoraion(cubit),
-        onChanged: cubit.onQuestionChanged,
-      ),
-    );
+    return state.response == null
+        ? Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+            child: TextFormField(
+              initialValue: state.question,
+              decoration: _buildTextFieldDecoraion(cubit),
+              onChanged: cubit.onQuestionChanged,
+            ),
+          )
+        : ElevatedButton(
+            onPressed: () => cubit.initPage(), child: const Text("new prompt"));
   }
 
   InputDecoration _buildTextFieldDecoraion(HomeCubit cubit) {

@@ -12,6 +12,9 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this._chatgptService, this._promptDataService)
       : super(HomeInitialState());
 
+  initPage(){
+    emit(HomeInitialState());
+  }
   onQuestionChanged(String? question) {
     emit((state as HomeInitialState).copyWith(question: question));
   }
