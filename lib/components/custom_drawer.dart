@@ -1,5 +1,6 @@
 import 'package:afs_gpt/screens/favorite_page.dart';
 import 'package:afs_gpt/screens/history_page.dart';
+import 'package:afs_gpt/service/login_service.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -19,7 +20,7 @@ class CustomDrawer extends StatelessWidget {
             _buildButton(title: "Favorites",  iconData: Icons.favorite, onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> FavoritePage()));
             }),
-            _buildButton(title: "Logout",  iconData: Icons.exit_to_app, onTap: (){}),
+            _buildButton(title: "Logout",  iconData: Icons.exit_to_app, onTap: _logout),
           ],
         ),
       ),
@@ -42,5 +43,9 @@ class CustomDrawer extends StatelessWidget {
       title: Text(title),
       onTap: onTap,
     );
+  }
+
+  void _logout(){
+    LoginService().logout();
   }
 }

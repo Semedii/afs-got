@@ -14,5 +14,8 @@ class LoginService{
       FirebaseExceptionHandler.handleFirebaseError(e);
     }
   }
+    Future<void> logout() async {
+    await _auth.signOut();
+  }
   }
   
