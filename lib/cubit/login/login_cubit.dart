@@ -32,8 +32,10 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  onLoginButtonPressed() {
+  onLoginButtonPressed() async {
     var currentState = state as LoginInitial;
-    loginService.login(currentState.email!, currentState.password!);
+    emit(currentState.copyWith(isLoginButtonLoading: true));
+    await loginService.login(currentState.email!, currentState.password!);
+    emit(currentState.copyWith(isLoginButtonLoading: false));
   }
 }

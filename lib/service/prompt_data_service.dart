@@ -25,7 +25,7 @@ class PromptDataService{
             toFirestore: (prompt, _) => prompt.toFirestore(),
           );
       final querySnapshot =
-          await collectionRef.where("userEmail", isEqualTo: email).get();
+          await collectionRef.where("userEmail", isEqualTo: email).orderBy("createdDate", descending: true).get();
       List<Prompt> prompts = querySnapshot.docs.map((doc) => doc.data()).toList();
       return prompts;
     } catch (e) {

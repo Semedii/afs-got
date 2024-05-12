@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                        _onLoginPressed(cubit);
                       },
-                      child: const Text('Login'),
+                      child: state.isLoginButtonLoading? const CircularProgressIndicator(): const Text('Login'),
                     ),
                   ],
                 ),
