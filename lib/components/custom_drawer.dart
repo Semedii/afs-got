@@ -1,3 +1,4 @@
+import 'package:afs_gpt/screens/history_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -11,9 +12,11 @@ class CustomDrawer extends StatelessWidget {
         child: Column(
           children: [
             _buildDrawerHeader(),
-            _buildButton("History", Icons.history),
-            _buildButton("Favorites", Icons.favorite),
-            _buildButton("Logout", Icons.exit_to_app),
+            _buildButton(title:  "History", iconData:  Icons.history, onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> HistoryPage()));
+            }),
+            _buildButton(title: "Favorites",  iconData: Icons.favorite, onTap: (){}),
+            _buildButton(title: "Logout",  iconData: Icons.exit_to_app, onTap: (){}),
           ],
         ),
       ),
@@ -30,11 +33,11 @@ class CustomDrawer extends StatelessWidget {
     ));
   }
 
-  ListTile _buildButton(String title, IconData iconData) {
+  ListTile _buildButton({required String title, required IconData iconData, required Function() onTap}) {
     return ListTile(
       leading: Icon(iconData),
       title: Text(title),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }

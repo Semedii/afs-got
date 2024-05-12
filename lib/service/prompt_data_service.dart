@@ -17,4 +17,28 @@ class PromptDataService{
       print("Error fetching products: $e");
     }
   }
+
+  Future<List<Prompt?>> fetchHistory(String email)async{
+        try {
+      final collectionRef = db.collection("prompts").withConverter(
+            fromFirestore: Prompt.fromFirestore,
+            toFirestore: (prompt, _) => prompt.toFirestore(),
+          );
+      final querySnapshot =
+          await collectionRef.where("userEmail", isEqualTo: email).get();
+      List<Prompt> prompts = querySnapshot.docs.map((doc) => doc.data()).toList();
+      return prompts;
+    } catch (e) {
+      print("Error fetching products: $e");
+      return [];
+    }
+  }
+    Future<void> updateIsFavorite(
+      {required String id, required bool isFavorite}) async {
+    final isFavData = {"isFavorite": isFavorite};
+    db
+        .collection('prompts')
+        .doc(id)
+        .update(isFavData);
+  }
 }

@@ -1,4 +1,6 @@
 import 'package:afs_gpt/components/custom_drawer.dart';
+import 'package:afs_gpt/components/question_message.dart';
+import 'package:afs_gpt/components/response_message..dart';
 import 'package:afs_gpt/cubit/home/home_cubit.dart';
 import 'package:afs_gpt/service/chatgpt_service.dart';
 import 'package:afs_gpt/service/prompt_data_service.dart';
@@ -50,26 +52,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Container _buildResponse(HomeInitialState state) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-      padding: const EdgeInsets.all(10.0),
-      decoration: _buildResponseDecoration(),
-      child: Text(
-        state.response!,
-        style: const TextStyle(fontSize: 16.0),
-      ),
-    );
-  }
-
-  BoxDecoration _buildResponseDecoration() {
-    return BoxDecoration(
-      color: Colors.grey[300],
-      borderRadius: const BorderRadius.only(
-        topRight: Radius.circular(20.0),
-        bottomLeft: Radius.circular(20.0),
-        bottomRight: Radius.circular(20.0),
-      ),
+  Column _buildResponse(HomeInitialState state) {
+    return Column(
+      children: [
+        QuestionMessage(question: state.question),
+        ResponseMessage(message: state.response),
+      ],
     );
   }
 
