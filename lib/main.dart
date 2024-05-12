@@ -1,5 +1,6 @@
 import 'package:afs_gpt/firebase_options.dart';
 import 'package:afs_gpt/screens/home_page.dart';
+import 'package:afs_gpt/screens/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Flutter Demo',
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
