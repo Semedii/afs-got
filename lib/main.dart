@@ -1,10 +1,10 @@
+import 'package:afs_gpt/auth_wrapper.dart';
 import 'package:afs_gpt/firebase_options.dart';
-import 'package:afs_gpt/screens/home_page.dart';
-import 'package:afs_gpt/screens/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const  MaterialApp(
       title: 'Flutter Demo',
-      home: LoginPage(),
+      home: AuthWrapper(),
     );
   }
 }
