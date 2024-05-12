@@ -1,9 +1,10 @@
 import 'dart:convert';
 
+import 'package:afs_gpt/model/prompt.dart';
 import 'package:http/http.dart' as https;
 
-class PromptRepository {
-  fetchChatGPTResponse(String message) async {
+class PromptService {
+  fetchChatGPTResponse(String message, String userEmail) async {
     try {
       final response = await https.post(
           Uri.parse('https://api.openai.com/v1/chat/completions'),
@@ -20,7 +21,13 @@ class PromptRepository {
           }));
 
       if (response.statusCode == 200) {
-        print("respons: ${response.body}");
+        String chatGptResponse =
+            jsonDecode(response.body)['choices'][0]['message']['content'];
+        Prompt prompt = Prompt(
+            question: message,
+            response: chatGptResponse,
+            userEmail: userEmail,
+            createdDate: DateTime.now());
       } else {
         print('Failed to fetch aswer: ${response.body}');
       }

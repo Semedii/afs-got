@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "84884898984",
+    "project_id": "afsgpt",
+    "storage_bucket": "afsgpt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84884898984:android:a5c21a896a2cb78c39ae9d",
+        "android_client_info": {
+          "package_name": "com.example.afs_gpt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHmgxkCnXs16u33t8Ld9FaaVxhrpA4WXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

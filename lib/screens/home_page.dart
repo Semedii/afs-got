@@ -1,5 +1,5 @@
 import 'package:afs_gpt/components/custom_drawer.dart';
-import 'package:afs_gpt/repository/prompt_repository.dart';
+import 'package:afs_gpt/service/prompt_service.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
       hintStyle: const TextStyle(color: Color.fromARGB(255, 101, 97, 97)),
       suffix: IconButton(
         icon: const Icon(Icons.arrow_upward),
-        onPressed: () => PromptRepository().fetchChatGPTResponse("say yes"),
+        onPressed: () {}// PromptService().fetchChatGPTResponse("whos their current president"),
       ),
       border: _buildTextFieldBorder(),
     );
