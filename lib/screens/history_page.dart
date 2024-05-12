@@ -35,7 +35,7 @@ class HistoryPage extends StatelessWidget {
                 },
               );
             }
-            return const CircularProgressIndicator();
+            return const Center(child:  CircularProgressIndicator());
           },
         ),
       ),
